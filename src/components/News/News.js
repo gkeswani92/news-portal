@@ -11,7 +11,8 @@ class News extends Component {
 
     // componentDidMount runs after the component has been rendered
     componentDidMount() {
-        const url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=9e335cfa16914994b47b2235d96b7fa0";
+        // Using template strings to insert the prop values into the URL
+        const url = `https://newsapi.org/v2/${this.props.news.type}?${this.props.news.query}&apiKey=9e335cfa16914994b47b2235d96b7fa0`;
         fetch(url)
             .then((response) => {
                 return response.json();
