@@ -23,7 +23,7 @@ class News extends Component {
             })
             .catch((error) => {
                 console.log(error);
-            })
+            });
     }
 
     renderItems() {
@@ -31,18 +31,15 @@ class News extends Component {
             // As we are iterating over the items, we need to pass in a key
             // for every component that is created along with the item itself
             // The only thing needed for this key is for it to be unique
-            <NewSingle 
-                key={item.url}
-                item={item}
-                />
-        ))
+            <NewSingle key={item.url} item={item} />
+        ));
     }
 
     render() {
         return (
-            <ul>
+            <div className="row">
                 {this.renderItems()}
-            </ul>
+            </div>
         );
     }
 }
